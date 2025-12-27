@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <title>Yorn Vichet | Mobile Developer</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --flutter-dark: #02569b;
+        --flutter-light: #42a5f5;
+        --flutter-cyan: #29b6f6;
+        --bg-dark: #0b1220;
+        --bg-light: #f6f9ff;
+        --card: #ffffff;
+        --text-dark: #0f172a;
+        --text-light: #94a3b8;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        background: var(--bg-light);
+        color: var(--text-dark);
+      }
+
+      /* HERO */
+      .hero {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          var(--flutter-dark),
+          var(--flutter-light)
+        );
+        color: white;
+        display: flex;
+        align-items: center;
+        padding: 0 8%;
+      }
+
+      .hero-content {
+        max-width: 900px;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        font-weight: 900;
+        line-height: 1.1;
+      }
+
+      .hero h1 span {
+        color: #e0f2ff;
+      }
+
+      .hero p {
+        margin-top: 25px;
+        font-size: 1.4rem;
+        max-width: 650px;
+        opacity: 0.95;
+      }
+
+      .hero-buttons {
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+      }
+
+      .hero-buttons a {
+        padding: 16px 32px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .btn-primary {
+        background: white;
+        color: var(--flutter-dark);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+      }
+
+      .btn-outline {
+        border: 2px solid white;
+        color: white;
+      }
+
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      /* SECTION */
+      .section {
+        padding: 120px 8%;
+      }
+
+      .section-title {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        max-width: 600px;
+        margin-bottom: 60px;
+      }
+
+      /* ABOUT */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 60px;
+      }
+
+      .about-card {
+        background: var(--card);
+        padding: 50px;
+        border-radius: 24px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+      }
+
+      .about-card p {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        margin-bottom: 20px;
+      }
+
+      /* SKILLS */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 30px;
+      }
+
+      .skill-card {
+        background: var(--card);
+        padding: 35px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.07);
+      }
+
+      .skill-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: var(--flutter-dark);
+      }
+
+      /* PROJECTS */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+      }
+
+      .project-card {
+        background: var(--card);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+      }
+
+      .project-card h3 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+        color: var(--flutter-dark);
+      }
+
+      .project-card p {
+        line-height: 1.7;
+        margin-bottom: 15px;
+      }
+
+      /* CONTACT */
+      .contact-card {
+        background: linear-gradient(
+          135deg,
+          var(--flutter-dark),
+          var(--flutter-light)
+        );
+        color: white;
+        padding: 70px;
+        border-radius: 30px;
+        text-align: center;
+      }
+
+      .contact-card h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      .contact-card a {
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .store-links {
+        margin-top: 20px;
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .store-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 18px;
+        border-radius: 12px;
+        background: #f1f5f9;
+        color: var(--flutter-dark);
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .store-links a:hover {
+        background: var(--flutter-light);
+        color: white;
+      }
+
+      .store-links i {
+        font-size: 1.2rem;
+      }
+      .flutter-icon {
+        width: 52px;
+        height: 52px;
+        margin-bottom: 20px;
+      }
+      .skill-card i {
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+
+      /* Flutter */
+      .skill-card.flutter h3 {
+        color: #02569b;
+      }
+
+      /* Firebase */
+      .skill-card.firebase i {
+        color: #ff9800;
+      }
+      .skill-card.firebase h3 {
+        color: #ff9800;
+      }
+
+      /* Database */
+      .skill-card.database i {
+        color: #22c55e;
+      }
+      .skill-card.database h3 {
+        color: #22c55e;
+      }
+
+      /* GitHub */
+      .skill-card.github i {
+        color: #111827;
+      }
+      .skill-card.github h3 {
+        color: #111827;
+      }
+
+      /* VPS */
+      .skill-card.vps i {
+        color: #7c3aed;
+      }
+      .skill-card.vps h3 {
+        color: #7c3aed;
+      }
+      /* EXPERIENCE */
+      .experience-timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+      }
+
+      .experience-card {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        gap: 30px;
+        background: white;
+        padding: 40px;
+        border-radius: 24px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+      }
+
+      .experience-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        color: white;
+      }
+
+      .experience-icon.pos {
+        background: linear-gradient(135deg, #02569b, #42a5f5);
+      }
+
+      .experience-icon.mktower {
+        background: linear-gradient(135deg, #7c3aed, #a78bfa);
+      }
+
+      .experience-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 6px;
+      }
+
+      .company {
+        display: block;
+        font-weight: 600;
+        color: var(--flutter-dark);
+      }
+
+      .duration {
+        display: block;
+        font-size: 0.9rem;
+        color: #64748b;
+        margin-bottom: 15px;
+      }
+
+      .experience-content p {
+        margin-bottom: 15px;
+        line-height: 1.7;
+      }
+
+      .experience-content ul {
+        padding-left: 20px;
+      }
+
+      .experience-content ul li {
+        margin-bottom: 8px;
+        list-style: disc;
+        color: #334155;
+      }
+
+      .hero-buttons {
+        margin-top: 40px;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap; /* allow wrapping on small screens */
+      }
+      /* Laravel */
+      .skill-card.laravel i {
+        color: #f55247; /* Laravel red */
+      }
+      .skill-card.laravel h3 {
+        color: #f55247;
+      }
+
+      /* Make buttons full width on smaller screens */
+      @media (max-width: 600px) {
+        .hero-buttons {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .hero-buttons a {
+          width: 100%;
+          text-align: center;
+          padding: 14px 0;
+        }
+      }
+
+      /* FOOTER */
+      footer {
+        padding: 40px;
+        text-align: center;
+        color: var(--text-light);
+      }
+      .hero-grid {
+        display: flex;
+        align-items: flex-start; /* align at top */
+        gap: 30px;
+        flex-wrap: wrap; /* stack on small screens */
+      }
+
+      .hero-image {
+        padding: 10px;
+        flex: 0 0 200px; /* fixed width for image */
+      }
+
+      .hero-image img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%; /* circular */
+        border: 5px solid white;
+        object-fit: cover;
+
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero-text {
+        flex: 1 1 400px; /* text takes remaining space */
+        padding: 10px;
+      }
+      .hero {
+        position: relative; /* required for absolute floating bg */
+        overflow: hidden;
+      }
+
+      .hero-floating-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* so it doesn’t block buttons */
+        z-index: 0; /* behind hero content */
+      }
+
+      .hero-floating-bg span {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15); /* transparent white */
+        animation: float 15s infinite ease-in-out;
+      }
+
+      .circle1 {
+        width: 120px;
+        height: 120px;
+        top: 10%;
+        left: 5%;
+        animation-duration: 18s;
+      }
+
+      .circle2 {
+        width: 200px;
+        height: 200px;
+        top: 30%;
+        left: 80%;
+        animation-duration: 20s;
+      }
+
+      .circle3 {
+        width: 80px;
+        height: 80px;
+        top: 70%;
+        left: 40%;
+        animation-duration: 16s;
+      }
+
+      .circle4 {
+        width: 150px;
+        height: 150px;
+        top: 50%;
+        left: 20%;
+        animation-duration: 22s;
+      }
+
+      .circle5 {
+        width: 100px;
+        height: 100px;
+        top: 80%;
+        left: 70%;
+        animation-duration: 19s;
+      }
+
+      /* Animation keyframes */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) translateX(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-30px) translateX(30px) rotate(180deg);
+        }
+      }
+
+      /* Responsive for small screens */
+      @media (max-width: 768px) {
+        .hero-grid {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .hero-image {
+          margin-bottom: 20px;
+        }
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .hero h1 {
+          font-size: 3rem;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HERO -->
+
+    <section class="hero">
+      <!-- Floating Animated Background -->
+      <div class="hero-floating-bg">
+        <span class="circle circle1"></span>
+        <span class="circle circle2"></span>
+        <span class="circle circle3"></span>
+        <span class="circle circle4"></span>
+        <span class="circle circle5"></span>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-grid">
+          <!-- Profile Image on Top-Start -->
+          <div class="hero-image">
+            <img src="/src/profile_no_card.jpg" alt="Yorn Vichet" />
+          </div>
+
+          <!-- Text -->
+          <div class="hero-text">
+            <h1>Hi, I’m <span>Yorn Vichet</span><br />Mobile Developer</h1>
+            <p>
+              I build modern, scalable, and beautiful mobile applications using
+              Flutter. Passionate about clean code, great UI, and real-world
+              solutions.
+            </p>
+            <div class="hero-buttons">
+              <a href="#projects" class="btn-primary">View Projects</a>
+              <a href="#experience" class="btn-outline">View Experience</a>
+              <a href="#skills" class="btn-primary">View Skills</a>
+              <a href="#contact" class="btn-outline">Contact Me</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">
+        Experienced Mobile Developer with a passion for building scalable,
+        intuitive, and high-performance applications. Skilled in Flutter,
+        full-stack development, and deploying production-ready solutions.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <p>
+            I specialize in <strong>Flutter</strong> development for Android,
+            iOS, Web, and Windows platforms, delivering clean, maintainable, and
+            performant code. My focus is on creating seamless user experiences
+            and visually appealing interfaces that meet business goals.
+          </p>
+          <p>
+            With experience in <strong>Firebase</strong>,
+            <strong>Database</strong> management,
+            <strong>Laravel</strong> backend development, and server deployment
+            on <strong>VPS</strong>, I am comfortable handling full-stack
+            responsibilities. I enjoy collaborating with teams, mentoring junior
+            developers, and bringing innovative ideas to life.
+          </p>
+          <p>
+            Currently, I contribute to professional-grade applications like
+            <strong>FindUP & Cambodia PRO</strong>, integrating robust backend
+            systems with elegant, user-friendly mobile solutions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">
+        Tools and technologies I use to build production-ready applications.
+      </p>
+
+      <div class="skills-grid">
+        <!-- Flutter -->
+        <div class="skill-card flutter">
+          <img src="/src/flutter.png" alt="Flutter" class="flutter-icon" />
+          <h3>Flutter Developer</h3>
+          <p>Android • iOS • Web • Windows</p>
+        </div>
+
+        <!-- Firebase -->
+        <div class="skill-card firebase">
+          <i class="fa-solid fa-fire"></i>
+          <h3>Firebase</h3>
+          <p>Authentication • Push Notification</p>
+        </div>
+
+        <!-- Database -->
+        <div class="skill-card database">
+          <i class="fa-solid fa-database"></i>
+          <h3>Database</h3>
+          <p>SQL • NoSQL • Data Modeling</p>
+        </div>
+
+        <!-- GitHub -->
+        <div class="skill-card github">
+          <i class="fa-brands fa-github"></i>
+          <h3>Git & GitHub</h3>
+          <p>Version Control • Collaboration</p>
+        </div>
+
+        <!-- VPS -->
+        <div class="skill-card vps">
+          <i class="fa-solid fa-server"></i>
+          <h3>VPS Server</h3>
+          <p>Linux • Deployment • Hosting</p>
+        </div>
+
+        <!-- Laravel -->
+        <div class="skill-card laravel">
+          <i class="fa-brands fa-laravel"></i>
+          <h3>Laravel</h3>
+          <p>Backend • API • MySQL</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiences-->
+    <section id="experience" class="section">
+      <h2 class="section-title">Experience</h2>
+      <p class="section-subtitle">
+        Professional experience building real-world, production-ready
+        applications.
+      </p>
+
+      <div class="experience-timeline">
+        
+        <!-- 8POS -->
+        <div class="experience-card">
+          <div class="experience-icon pos">
+            <img src="/src/8pos.webp" alt="" width="80" />
+          </div>
+
+          <div class="experience-content">
+            <h3>Mobile Developer / Full Stack Developer</h3>
+            <span class="company">8POS Company</span>
+            <span class="duration">1.5 Years</span>
+
+            <p>
+              Worked as a <strong>Mobile Developer (Android & iOS)</strong> and
+              <strong>Full Stack Developer</strong> to build and maintain a
+              Point of Sale (POS) system.
+            </p>
+
+            <ul>
+              <li>Developed POS mobile applications for Android & iOS</li>
+              <li>Built stock management and sales reports</li>
+              <li>Integrated mobile apps with backend APIs</li>
+              <li>Backend development using Laravel & MySQL</li>
+              <li>Worked closely with business requirements</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- MK Tower -->
+        <div class="experience-card">
+          <div class="experience-icon mktower">
+            <img src="/src/mk_tower.JPG" alt="" width="80" />
+          </div>
+
+          <div class="experience-content">
+            <h3>Full Stack Mobile Developer</h3>
+            <span class="company">MK Tower (Korean Company, Cambodia)</span>
+            <span class="duration">Present</span>
+
+            <p>
+              Currently working as a
+              <strong>Full Stack Mobile Developer</strong>
+              responsible for building and deploying large-scale applications.
+            </p>
+
+            <ul>
+              <li>Developed full-stack real estate applications</li>
+              <li>
+                Built <strong>Cambodia Pro</strong> real estate mobile app
+              </li>
+              <li>Set up and managed VPS servers</li>
+              <li>Handled backend, deployment, and server configuration</li>
+              <li>Integrated Firebase, APIs, and production services</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>
+            <img src="src/findup.png" alt="" /> FindUP – Real Estate Mobile App
+          </h3>
+
+          <p>
+            FindUP is a modern real estate application that allows users to buy,
+            sell, and rent properties easily with direct owner communication.
+          </p>
+
+          <p>
+            <strong>Platform:</strong> Android & iOS<br />
+            <strong>Tech:</strong> Flutter, Firebase Auth, Push Notification,
+            Google Maps
+          </p>
+
+          <div class="store-links">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.vc.cambodia_pro"
+              target="_blank"
+            >
+              <i class="fa-brands fa-google-play"></i> Google Play
+            </a>
+
+            <a
+              href="https://apps.apple.com/kh/app/find-up/id6755057273"
+              target="_blank"
+            >
+              <i class="fa-brands fa-apple"></i> App Store
+            </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3><img src="/src/cambodiapro.png" alt="" /> Cambodia Pro App</h3>
+
+          <p>
+            Cambodia Pro is a mobile application designed to provide
+            professional services and information for users in Cambodia with a
+            clean and modern UI.
+          </p>
+
+          <p>
+            <strong>Platform:</strong> Android & iOS<br />
+            <strong>Tech:</strong> Flutter, Firebase, Push Notification
+          </p>
+
+          <div class="store-links">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.ksl.cambodia_pro"
+              target="_blank"
+            >
+              <i class="fa-brands fa-google-play"></i> Play Store
+            </a>
+
+            <a
+              href="https://apps.apple.com/kh/app/pro-cambodia/id6755371271"
+              target="_blank"
+            >
+              <i class="fa-brands fa-apple"></i> App Store
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="contact-card">
+        <h2>Let’s Work Together</h2>
+        <p>
+          Email:
+          <a href="mailto:yornvichet883@gmail.com">yornvichet883@gmail.com</a>
+        </p>
+        <p>
+          Telegram:
+          <a href="https://t.me/yorn_vichett" target="_blank"
+            >@YourTelegramUsername</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <footer>© 2025 Yorn Vichet • Flutter-inspired design 💙</footer>
+  </body>
+</html>
